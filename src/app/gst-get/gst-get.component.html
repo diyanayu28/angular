@@ -1,0 +1,30 @@
+<input class="form-control" type="text" placeholder="Search..."><br>
+<table class="table">
+    <thead>
+      <tr>
+        <th scope="col">ID</th> 
+        <th scope="col">Owner</th>
+        <th scope="col">Company Name</th>
+        <th scope="col">GST Number</th>
+        <th scope="col">Action</th>
+        <!--<th scope="col">Edit</th>
+        <th scope="col">Delete</th>-->
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let data of business">
+        <td>{{data._id}}</td>
+        <td>{{data.person_name}}</td>
+        <td>{{data.business_name}}</td>
+        <td>{{data.business_gst_number}}</td>
+        <td>
+        <a [routerLink]="['/detail',data._id]" class="btn btn-primary">Detail</a> &nbsp;
+        <a (click) = "deleteBusiness(data._id)" class="btn btn-danger">Delete</a>
+        </td>
+      </tr>
+      
+    </tbody>
+  </table>
+
+<button type="button" class="btn btn-primary">Add New</button> &nbsp;
+<button (click)="refresh()" type="button" class="btn btn-secondary">Refresh</button>
